@@ -1,4 +1,5 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards, UsePipes } from '@nestjs/common';
+import { ValidationPipe } from 'src/pipes/validation.pipe';
 // import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 // import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 // import { Roles } from 'src/auth/roles-auth.decorator';
@@ -16,6 +17,7 @@ export class MessagesController {
 
   // @ApiOperation({ summary: 'Создание пользователя' })
   // @ApiResponse({ status: 200, type: User })
+  @UsePipes(ValidationPipe)
   @Post()
   create(@Body() messageDto: CreateMessageDto) {
     return this.usersService.createMessage(messageDto);
