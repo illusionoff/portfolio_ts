@@ -31,10 +31,9 @@ export class MessagesService {
     const BDResult = this.messageRepository.create(dto);
     const mailResult = this.mailService.sendMessageConfirmation(dto);
     const smsResult = this.smsService.sendSMS(dto);
-    const [ReturnBDResult] = await Promise.all([BDResult, mailResult, smsResult]).catch((err) => {
-      err.message = 'error email send:' + err.message;
-      throw err;
-    });
+    const rawRes = await Promise.allSettled([BDResult, mailResult, smsResult]);
+    const res = rawRes.filter((res) => res.status === 'fulfilled') as PromiseFulfilledResult<any>[];
+    const ReturnBDResult = res[0].value;
     // const role = await this.roleService.getRoleByValue('ADMIN');
     // await user.$set('roles', [role.id]);
     // user.roles = [role];
