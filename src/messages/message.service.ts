@@ -25,8 +25,8 @@ export class MessagesService {
     const EMAIL_TO_1 = process.env.EMAIL_TO_1;
     const EMAIL_TO_2 = process.env.EMAIL_TO_2;
     const message = await this.messageRepository.create(dto);
-    const promise1 = this.mailService.sendMessageConfirmation(EMAIL_TO_1, message.name, message.message);
-    const promise2 = this.mailService.sendMessageConfirmation(EMAIL_TO_2, message.name, message.message);
+    const promise1 = this.mailService.sendMessageConfirmation(EMAIL_TO_1, dto);
+    const promise2 = this.mailService.sendMessageConfirmation(EMAIL_TO_2, dto);
     // await this.mailService.sendMessageConfirmation(message.name, message.message);
     await Promise.all([promise1, promise2]).catch((err) => {
       err.message = 'error email send:' + err.message;
