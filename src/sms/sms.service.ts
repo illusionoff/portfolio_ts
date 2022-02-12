@@ -1,13 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { HttpService } from '@nestjs/axios';
+import { lastValueFrom, map } from 'rxjs';
 import { CreateMessageDto } from 'src/messages/dto/create-message.dto';
 
 @Injectable()
 export class SmsService {
-  // constructor(private smsService: SmsService) {}
+  constructor(private httpService: HttpService) {}
 
   async sendSMS(dto: CreateMessageDto): Promise<void> {
     try {
-      let { name, message } = dto;
       // await this.mailerService.sendMail(mailTemplate(email, name, message));
 
       // if (name.length > 10) name = name.substring(0, 10);
@@ -41,6 +42,20 @@ export class SmsService {
       // }
       // let result = await responseSMS.json();
       // console.log('SMS:', result);
+
+
+      let { name, message } = dto;
+      if (name.length > 10) name = name.substring(0, 10);
+      if (message.length > 30) message = message.substring(0, 30);
+      console.log('message=', message);
+      const CONFIGSMS = process.env.CONFIG_SMS_URL;
+      const TOKEN = process.env.CONFIG_SMS_TOKEN;
+      const PHONE = process.env.CONFIG_SMS_PHONE;
+      const urlSMS = `${CONFIGSMS}?token=${TOKEN}&message=name:${encodeURIComponent(name)}:message:${encodeURIComponent(message)}&phone=${PHONE}`;
+      const smsResponse = await lastValueFrom(this.httpService.get(urlSMS)
+        .pipe(map((res) => res.data))
+      );
+      console.log(smsResponse);
     } catch (e) {
       console.log('Error My 1');
       console.log(e);

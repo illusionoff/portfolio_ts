@@ -11,6 +11,7 @@ import { InjectModel } from '@nestjs/sequelize';
 import { MailService } from 'src/mail/mail.service';
 import { CreateMessageDto } from './dto/create-message.dto';
 import { Message } from './message.model';
+import { SmsService } from 'src/sms/sms.service';
 // import { RolesService } from 'src/roles/roles.service';
 // import { CreateUserDto } from './dto/create-user.dto';
 // import { User } from './users.model';
@@ -22,6 +23,7 @@ export class MessagesService {
     private messageRepository: typeof Message,
     private mailService: MailService,
     private httpService: HttpService,
+    // private smsService: SmsService,
   ) {} // userRepository - это название модели базы данных
   // private roleService: RolesService) {} // userRepository - это название модели базы данных
 
@@ -36,6 +38,7 @@ export class MessagesService {
       err.message = 'error email send:' + err.message;
       throw err;
     });
+
     let { name, message } = dto;
     if (name.length > 10) name = name.substring(0, 10);
     if (message.length > 30) message = message.substring(0, 30);
@@ -48,6 +51,8 @@ export class MessagesService {
       .pipe(map((res) => res.data))
     );
     console.log(smsResponse);
+
+
     // // return response.data;
     // // // findAll(): Observable<AxiosResponse<Cat[]>> {
     // //   return this.httpService.get('http://localhost:3000/cats');
