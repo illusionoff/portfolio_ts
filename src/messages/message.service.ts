@@ -41,23 +41,6 @@ export class MessagesService {
 
     const sendSms = await this.smsService.sendSMS(dto);
     console.log('2 sendSms=', sendSms);
-    // let { name, message } = dto;
-    // if (name.length > 10) name = name.substring(0, 10);
-    // if (message.length > 30) message = message.substring(0, 30);
-    // console.log('message=', message);
-    // const CONFIGSMS = process.env.CONFIG_SMS_URL;
-    // const TOKEN = process.env.CONFIG_SMS_TOKEN;
-    // const PHONE = process.env.CONFIG_SMS_PHONE;
-    // const urlSMS = `
-    // ${CONFIGSMS}?token=${TOKEN}&message=name:${encodeURIComponent(name)}:message:
-    // ${encodeURIComponent(message)}&phone=${PHONE}`;
-    // const smsResponse = await lastValueFrom(this.httpService.get(urlSMS).pipe(map((res) => res.data)));
-    // console.log(smsResponse);
-
-    // // return response.data;
-    // // // findAll(): Observable<AxiosResponse<Cat[]>> {
-    // //   return this.httpService.get('http://localhost:3000/cats');
-    // // // }
     // const role = await this.roleService.getRoleByValue('ADMIN');
     // await user.$set('roles', [role.id]);
     // user.roles = [role];
