@@ -28,24 +28,18 @@ export class MessagesService {
   // private roleService: RolesService) {} // userRepository - это название модели базы данных
 
   async createMessage(dto: CreateMessageDto) {
-    const EMAIL_TO_1 = process.env.EMAIL_TO_1;
-    const EMAIL_TO_2 = process.env.EMAIL_TO_2;
-    const messageReturn = await this.messageRepository.create(dto);
-    const promise1 = this.mailService.sendMessageConfirmation(EMAIL_TO_1, dto);
-    const promise2 = this.mailService.sendMessageConfirmation(EMAIL_TO_2, dto);
-    // await this.mailService.sendMessageConfirmation(message.name, message.message);
-    await Promise.all([promise1, promise2]).catch((err) => {
+    const BDResult = this.messageRepository.create(dto);
+    const mailResult = this.mailService.sendMessageConfirmation(dto);
+    const smsResult = this.smsService.sendSMS(dto);
+    const [ReturnBDResult] = await Promise.all([BDResult, mailResult, smsResult]).catch((err) => {
       err.message = 'error email send:' + err.message;
       throw err;
     });
-
-    const sendSms = await this.smsService.sendSMS(dto);
-    console.log('2 sendSms=', sendSms);
     // const role = await this.roleService.getRoleByValue('ADMIN');
     // await user.$set('roles', [role.id]);
     // user.roles = [role];
     // return user;
-    return messageReturn;
+    return ReturnBDResult;
   }
 
   async getAllUsers() {
