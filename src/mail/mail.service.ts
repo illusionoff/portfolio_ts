@@ -9,8 +9,9 @@ export class MailService {
 
   async sendMessageConfirmation(email: string, dto: CreateMessageDto): Promise<void> {
     try {
-      const name = dto.name;
-      const message = dto.message;
+      const { name, message } = dto;
+      // const name = dto.name;
+      // const message = dto.message;
       await this.mailerService.sendMail(mailTemplate(email, name, message));
     } catch (e) {
       console.log('Error My 1');

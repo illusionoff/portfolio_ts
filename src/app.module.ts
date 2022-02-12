@@ -7,6 +7,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { MailModule } from './mail/mail.module';
+import { SmsService } from './sms/sms.service';
 // @Module({
 //   imports: [],
 //   controllers: [AppController],
@@ -62,5 +63,6 @@ import { MailModule } from './mail/mail.module';
     // }),
     MailModule,
   ],
+  providers: [SmsService],
 })
 export class AppModule {}
