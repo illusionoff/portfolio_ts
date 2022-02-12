@@ -11,17 +11,7 @@ export function mailTransport(): object {
       },
     },
     defaults: {
-      // from: process.env.EMAIL_FROM,
       from: `"Alex" <${process.env.EMAIL_FROM}>`,
     },
-    // template: {
-    //   // dir: path.join(__dirname, 'templates'), 
-    //   // dir: path.join(process.env.PWD, 'templates', 'confirmation'),
-    //   dir: process.cwd() + '/templates/confirmation',
-    //   adapter: new HandlebarsAdapter(), // or new PugAdapter() or new EjsAdapter()
-    //   options: {
-    //     strict: true,
-    //   },
-    // },
   };
 }

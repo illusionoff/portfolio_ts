@@ -19,7 +19,6 @@ export class SmsService {
       const urlSMS = strToken + strMessageName + strMessageMessage + strPhone;
       return await lastValueFrom(this.httpService.get(urlSMS).pipe(map((res) => res.data)));
     } catch (e) {
-      console.log('Error My 1');
       console.log(e);
     }
   }

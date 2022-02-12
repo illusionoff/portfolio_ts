@@ -11,7 +11,6 @@ export class MailService {
     try {
       return await this.mailerService.sendMail(mailTemplate(email, dto));
     } catch (e) {
-      console.log('Error My 1');
       console.log(e);
     }
   }
