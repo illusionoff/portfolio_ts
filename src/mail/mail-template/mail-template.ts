@@ -1,4 +1,7 @@
-export function mailTemplate(email: string, name: string, message: string): object {
+import { CreateMessageDto } from 'src/messages/dto/create-message.dto';
+
+export function mailTemplate(email: string, dto: CreateMessageDto): object {
+  const { name, message } = dto;
   return {
     from: process.env.EMAIL_FROM,
     to: email,
