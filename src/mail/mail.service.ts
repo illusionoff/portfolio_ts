@@ -5,10 +5,10 @@ import { MailerService } from '@nestjs-modules/mailer';
 export class MailService {
   constructor(private mailerService: MailerService) {}
 
-  async sendMessageConfirmation(name: string, message: string): Promise<void> {
+  async sendMessageConfirmation(email: string, name: string, message: string): Promise<void> {
     try {
       await this.mailerService.sendMail({
-        to: process.env.EMAIL_TO_1,
+        to: email, //process.env.EMAIL_TO_1
         from: process.env.EMAIL_FROM,
         subject: 'Сообщение с моего сайта портфолио',
         text: `Сообщение с моего сайта портфолио.${name}: ${message}`,
