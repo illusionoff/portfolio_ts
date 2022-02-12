@@ -22,8 +22,8 @@ export class MessagesService {
     @InjectModel(Message)
     private messageRepository: typeof Message,
     private mailService: MailService,
-    private httpService: HttpService,
-    // private smsService: SmsService,
+    // private httpService: HttpService,
+    private smsService: SmsService,
   ) {} // userRepository - это название модели базы данных
   // private roleService: RolesService) {} // userRepository - это название модели базы данных
 
@@ -39,19 +39,20 @@ export class MessagesService {
       throw err;
     });
 
-    let { name, message } = dto;
-    if (name.length > 10) name = name.substring(0, 10);
-    if (message.length > 30) message = message.substring(0, 30);
-    console.log('message=', message);
-    const CONFIGSMS = process.env.CONFIG_SMS_URL;
-    const TOKEN = process.env.CONFIG_SMS_TOKEN;
-    const PHONE = process.env.CONFIG_SMS_PHONE;
-    const urlSMS = `${CONFIGSMS}?token=${TOKEN}&message=name:${encodeURIComponent(name)}:message:${encodeURIComponent(message)}&phone=${PHONE}`;
-    const smsResponse = await lastValueFrom(this.httpService.get(urlSMS)
-      .pipe(map((res) => res.data))
-    );
-    console.log(smsResponse);
-
+    const sendSms = await this.smsService.sendSMS(dto);
+    console.log('2 sendSms=', sendSms);
+    // let { name, message } = dto;
+    // if (name.length > 10) name = name.substring(0, 10);
+    // if (message.length > 30) message = message.substring(0, 30);
+    // console.log('message=', message);
+    // const CONFIGSMS = process.env.CONFIG_SMS_URL;
+    // const TOKEN = process.env.CONFIG_SMS_TOKEN;
+    // const PHONE = process.env.CONFIG_SMS_PHONE;
+    // const urlSMS = `
+    // ${CONFIGSMS}?token=${TOKEN}&message=name:${encodeURIComponent(name)}:message:
+    // ${encodeURIComponent(message)}&phone=${PHONE}`;
+    // const smsResponse = await lastValueFrom(this.httpService.get(urlSMS).pipe(map((res) => res.data)));
+    // console.log(smsResponse);
 
     // // return response.data;
     // // // findAll(): Observable<AxiosResponse<Cat[]>> {

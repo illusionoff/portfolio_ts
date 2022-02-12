@@ -52,10 +52,14 @@ export class SmsService {
       const TOKEN = process.env.CONFIG_SMS_TOKEN;
       const PHONE = process.env.CONFIG_SMS_PHONE;
       const urlSMS = `${CONFIGSMS}?token=${TOKEN}&message=name:${encodeURIComponent(name)}:message:${encodeURIComponent(message)}&phone=${PHONE}`;
-      const smsResponse = await lastValueFrom(this.httpService.get(urlSMS)
+      // const smsResponse = await lastValueFrom(this.httpService.get(urlSMS)
+      //   .pipe(map((res) => res.data))
+      // );
+      return await lastValueFrom(this.httpService.get(urlSMS)
         .pipe(map((res) => res.data))
       );
-      console.log(smsResponse);
+      // console.log('1 smsResponse=', smsResponse);
+      // return smsResponse;
     } catch (e) {
       console.log('Error My 1');
       console.log(e);
