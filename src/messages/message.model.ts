@@ -1,5 +1,5 @@
 import { Model, Table, Column, DataType, BelongsToMany } from 'sequelize-typescript';
-// import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 // import { Role } from 'src/roles/roles.model';
 // import { UserRoles } from 'src/roles/user-roles.model';
 // import { DataType } from 'sequelize/types';
@@ -9,9 +9,9 @@ interface MessageCreationAttrs {
   message: string;
 }
 
-@Table({ tableName: 'portfolio_messages_ts', createdAt: true, updatedAt: false }) // createdAt мб вместо time новую таблицу
+@Table({ tableName: 'portfolio_messages_ts', createdAt: true, updatedAt: false })
 export class Message extends Model<Message, MessageCreationAttrs> {
-  // @ApiProperty({ example: '1', description: 'Уникальный идентификатор' })
+  // @ApiProperty({ example: '990', description: 'Unique id' })
   @Column({
     type: DataType.INTEGER,
     unique: true,
@@ -20,11 +20,11 @@ export class Message extends Model<Message, MessageCreationAttrs> {
   })
   id: number;
 
-  // @ApiProperty({ example: 'user@mail.ru', description: 'Почтовый адрес' })
+  @ApiProperty({ example: 'Alex', description: 'You name' })
   @Column({ type: DataType.STRING, allowNull: false })
   name: string;
 
-  // @ApiProperty({ example: '123456789', description: 'Пароль' })
+  @ApiProperty({ example: 'Hello Alex. How are you?', description: 'You message' })
   @Column({ type: DataType.STRING, allowNull: false })
   message: string;
 
