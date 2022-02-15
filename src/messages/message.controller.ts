@@ -13,7 +13,7 @@ import { MessagesService } from './message.service';
 // import { MessageService } from './users.service';
 
 @ApiTags('Messages')
-@Controller('api/message')
+@Controller('message')
 export class MessagesController {
   constructor(private usersService: MessagesService) {}
 

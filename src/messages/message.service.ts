@@ -42,8 +42,9 @@ export class MessagesService {
     // const role = await this.roleService.getRoleByValue('ADMIN');
     // await user.$set('roles', [role.id]);
     // user.roles = [role];
-    // return user;
-    return ReturnBDResult;
+    // return user;{ message: 'Сообщение доставлено' }
+    // return ReturnBDResult;
+    return { message: 'Сообщение доставлено' };
   }
 
   async getAllUsers() {
