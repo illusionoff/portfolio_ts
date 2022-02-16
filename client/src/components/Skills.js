@@ -60,7 +60,7 @@ export const Skills = () => {
               <div className="col s6 m4">
                 <img alt="" src="images/expressjs_128.png" className="responsive-img"></img>Express.js
               </div>
-              <div className="col s6 m4">
+              <div className="col s12 m4">
                 <img alt="" src="images/nestjs_128.png" className="responsive-img"></img>Nestjs
               </div>
               <div className="col s6 m4" >
@@ -77,17 +77,20 @@ export const Skills = () => {
           <div className="card-content">
             <h4 className=" grey-text text-darken-2">Other</h4>
             <div className="row center-align">
-              <div className="col s6 m3">
+              <div className="col s6 m4">
                 <img alt="" src="images/github.png" className="responsive-img"></img>Github
               </div>
-              <div className="col s6 m3">
+              <div className="col s6 m4">
                 <img alt="" src="images/linux.png" className="responsive-img"></img>linux
               </div>
-              <div className="col s6 m3">
+              <div className="col s6 m4">
                 <img alt="" src="images/nginx.png" className="responsive-img"></img>Nginx
               </div>
-              <div className="col s6 m3">
+              <div className="col s6 m4">
                 <img alt="" src="images/vscode.png" className="responsive-img"></img>VSCode
+              </div>
+              <div className="col s12 m4">
+                <img alt="" src="images/swagger_128px.png" className="responsive-img"></img>Swagger
               </div>
             </div>
           </div>
