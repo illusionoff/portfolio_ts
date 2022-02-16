@@ -27,7 +27,7 @@ export const WriteMe = () => {
       const data = await request('/api/message', 'POST', { ...form });
       messageRequest(data.message);
       console.log('Data:', data);
-    } catch (e) { }
+    } catch (e) {}
   }
 
   return (
@@ -55,7 +55,7 @@ export const WriteMe = () => {
                     onChange={changeHandler}
                   />
                   <label htmlFor="name">Ваше имя:</label>
-                  <span className="helper-text" data-error="Имя меньше трех символов"></span>
+                  <span className="helper-text" data-error="Имя меньше трех символов или больше 30"></span>
                 </div>
 
                 <div className="input-field">
@@ -65,7 +65,7 @@ export const WriteMe = () => {
                     type="text"
                     name="message"
                     className=" yellow-input materialize-textarea validate"
-                    minLength="3"
+                    minLength="10"
                     // pattern=".{3,500}"
                     // title="5 to 10 characters"
                     maxLength="1000"
@@ -75,7 +75,7 @@ export const WriteMe = () => {
                     onChange={changeHandler}
                   />
                   <label htmlFor="message" >Ваше сообщение:</label>
-                  <span className="helper-text" data-error="Сообщение больше 1000 символов"></span>
+                  <span className="helper-text" data-error="Сообщение меньше 10 символов или больше 1000"></span>
                 </div>
 
               </div>
@@ -88,7 +88,7 @@ export const WriteMe = () => {
                 disabled={loading}
               >
                 Отправить
-                            </button>
+              </button>
             </div>
           </div>
 
