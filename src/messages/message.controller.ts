@@ -31,8 +31,13 @@ export class MessagesController {
   // @Roles('ADMIN')
   // @UseGuards(RolesGuard)
   @Get(':pass')
-  getAllMessages(@Param('pass') pass: string) {
+  getAll(@Param('pass') pass: string) {
     // return 'getAllMessages(pass)=' + pass;
-    return this.usersService.getAllMessages(pass);
+    return this.usersService.getAll(pass);
+  }
+
+  @Get('/:pass/:number')
+  GetLimit(@Param('pass') pass: string, @Param('number') number: number) {
+    return this.usersService.getLimit(pass, number);
   }
 }

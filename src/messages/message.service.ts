@@ -49,11 +49,14 @@ export class MessagesService {
     return { message: 'Сообщение доставлено' };
   }
 
-  async getAllMessages(pass) {
+  private async comparePass(passReq, passTrue) {
     const saltOrRounds = 10;
-    const password = process.env.PASS_GETALLMESSAGES;
-    const hashPassword = await bcrypt.hash(password, saltOrRounds);
-    const isMatch = await bcrypt.compare(pass, hashPassword);
+    const hashPassword = await bcrypt.hash(passTrue, saltOrRounds);
+    return await bcrypt.compare(passReq, hashPassword);
+  }
+
+  async getAll(pass) {
+    const isMatch = await this.comparePass(pass, process.env.PASS_GETALLMESSAGES);
     if (isMatch) {
       const users = await this.messageRepository.findAll({ include: { all: true } });
       return users;
@@ -65,4 +68,15 @@ export class MessagesService {
   //   const user = await this.userRepository.findOne({ where: { email }, include: { all: true } });
   //   return user;
   // }
+
+  async getLimit(pass, number) {
+    const isMatch = await this.comparePass(pass, process.env.PASS_GETALLMESSAGES);
+    if (isMatch) {
+      return await this.messageRepository.findAll({
+        order: [['createdAt', 'DESC']],
+        limit: number,
+      });
+    }
+    return 'Access denied. Wrong password';
+  }
 }
