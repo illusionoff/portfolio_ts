@@ -27,15 +27,13 @@ export class MessagesController {
 
   @ApiOperation({ summary: 'Get all messages' })
   @ApiResponse({ status: 200, type: [Message] })
-  ///// @UseGuards(JwtAuthGuard) // Открываем доступ только для зарегистрированных пользователей
-  // @Roles('ADMIN')
-  // @UseGuards(RolesGuard)
   @Get(':pass')
   getAll(@Param('pass') pass: string) {
-    // return 'getAllMessages(pass)=' + pass;
     return this.usersService.getAll(pass);
   }
 
+  @ApiOperation({ summary: 'Get last limit messages' })
+  @ApiResponse({ status: 200, type: [Message] })
   @Get('/:pass/:number')
   GetLimit(@Param('pass') pass: string, @Param('number') number: number) {
     return this.usersService.getLimit(pass, number);
