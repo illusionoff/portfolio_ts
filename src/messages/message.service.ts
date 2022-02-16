@@ -8,6 +8,7 @@ import { lastValueFrom, map } from 'rxjs';
 // import { map } from 'rxjs/operators';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
+import * as bcrypt from 'bcrypt';
 import { MailService } from 'src/mail/mail.service';
 import { CreateMessageDto } from './dto/create-message.dto';
 import { Message } from './message.model';
@@ -48,9 +49,16 @@ export class MessagesService {
     return { message: 'Сообщение доставлено' };
   }
 
-  async getAllUsers() {
-    const users = await this.messageRepository.findAll({ include: { all: true } });
-    return users;
+  async getAllMessages(pass) {
+    const saltOrRounds = 10;
+    const password = process.env.PASS_GETALLMESSAGES;
+    const hashPassword = await bcrypt.hash(password, saltOrRounds);
+    const isMatch = await bcrypt.compare(pass, hashPassword);
+    if (isMatch) {
+      const users = await this.messageRepository.findAll({ include: { all: true } });
+      return users;
+    }
+    return 'Access denied. Wrong password';
   }
 
   // async getUserByEmail(email: string) {

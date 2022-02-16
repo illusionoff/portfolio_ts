@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UseGuards, UsePipes } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards, UsePipes } from '@nestjs/common';
 import { ValidationPipe } from 'src/pipes/validation.pipe';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 // import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -30,8 +30,9 @@ export class MessagesController {
   ///// @UseGuards(JwtAuthGuard) // Открываем доступ только для зарегистрированных пользователей
   // @Roles('ADMIN')
   // @UseGuards(RolesGuard)
-  @Get()
-  getAll() {
-    return this.usersService.getAllUsers();
+  @Get(':pass')
+  getAllMessages(@Param('pass') pass: string) {
+    // return 'getAllMessages(pass)=' + pass;
+    return this.usersService.getAllMessages(pass);
   }
 }
