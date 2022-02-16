@@ -28,29 +28,24 @@ export class MessagesService {
   // private roleService: RolesService) {} // userRepository - это название модели базы данных
 
   async createMessage(dto: CreateMessageDto) {
-    try {
-      const BDResult = this.messageRepository.create(dto);
-      const EMAIL_TO_1 = process.env.EMAIL_TO_1;
-      const EMAIL_TO_2 = process.env.EMAIL_TO_2;
-      // console.log('mail.service EMAIL_TO_1=', EMAIL_TO_1);
-      // const mailResult = this.mailService.sendMessageConfirmation(dto);
-      const smsResult = this.smsService.sendSMS(dto);
-      const mailResult1 = this.mailService.sendMessageConfirmation(EMAIL_TO_1, dto);
-      const mailResult2 = this.mailService.sendMessageConfirmation(EMAIL_TO_2, dto);
-      const rawRes = await Promise.allSettled([BDResult, smsResult, mailResult1, mailResult2]);
-      const res = rawRes.filter((res) => res.status === 'fulfilled') as PromiseFulfilledResult<any>[];
-      const ReturnBDResult = res[0].value;
-      console.log('ReturnBDResult=', ReturnBDResult);
-      // const role = await this.roleService.getRoleByValue('ADMIN');
-      // await user.$set('roles', [role.id]);
-      // user.roles = [role];
-      // return user;{ message: 'Сообщение доставлено' }
-      // return ReturnBDResult;
-      return { message: 'Сообщение доставлено' };
-    } catch (e) {
-      console.log('ReturnBDResult=', e);
-
-    }
+    const BDResult = this.messageRepository.create(dto);
+    const EMAIL_TO_1 = process.env.EMAIL_TO_1;
+    const EMAIL_TO_2 = process.env.EMAIL_TO_2;
+    // console.log('mail.service EMAIL_TO_1=', EMAIL_TO_1);
+    // const mailResult = this.mailService.sendMessageConfirmation(dto);
+    const smsResult = this.smsService.sendSMS(dto);
+    const mailResult1 = this.mailService.sendMessageConfirmation(EMAIL_TO_1, dto);
+    const mailResult2 = this.mailService.sendMessageConfirmation(EMAIL_TO_2, dto);
+    const rawRes = await Promise.allSettled([BDResult, smsResult, mailResult1, mailResult2]);
+    const res = rawRes.filter((res) => res.status === 'fulfilled') as PromiseFulfilledResult<any>[];
+    const ReturnBDResult = res[0].value;
+    console.log('ReturnBDResult=', ReturnBDResult);
+    // const role = await this.roleService.getRoleByValue('ADMIN');
+    // await user.$set('roles', [role.id]);
+    // user.roles = [role];
+    // return user;{ message: 'Сообщение доставлено' }
+    // return ReturnBDResult;
+    return { message: 'Сообщение доставлено' };
   }
 
   async getAllUsers() {
