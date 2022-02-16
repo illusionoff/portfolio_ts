@@ -35,14 +35,17 @@ export const Skills = () => {
 
         <div className="card">
           <div className="card-content">
-            <h4 className=" grey-text text-darken-2">Javascript</h4>
+            <h4 className=" grey-text text-darken-2">Javascript TypeScript</h4>
             <div className="row center-align">
-              <div className="col s6">
-                <img alt="" src="images/react.png" className="responsive-img"></img>React
-                             </div>
-              <div className="col s6">
+              <div className="col s6 m4">
                 <img alt="" src="images/javascript.png" className="responsive-img"></img>Javascript
-                            </div>
+              </div>
+              <div className="col s6 m4">
+                <img alt="" src="images/typescript_128.png" className="responsive-img"></img>TypeScript
+              </div>
+              <img alt="" src="images/react.png" className="responsive-img"></img>React
+            </div>
+            <div className="col s6 m4">
             </div>
           </div>
         </div>
@@ -53,13 +56,13 @@ export const Skills = () => {
             <div className="row center-align">
               <div className="col s6 m4" >
                 <img alt="" src="images/postgresql.png" className="responsive-img"></img>PostgreSQL
-                             </div>
+              </div>
               <div className="col s6 m4">
                 <img alt="" src="images/mongodb.png" className="responsive-img"></img>MongoDB
-                            </div>
+              </div>
               <div className="col s6 m4">
                 <img alt="" src="images/nodejs.png" className="responsive-img"></img>Nodejs
-                            </div>
+              </div>
             </div>
           </div>
         </div>
@@ -70,16 +73,16 @@ export const Skills = () => {
             <div className="row center-align">
               <div className="col s6 m3">
                 <img alt="" src="images/github.png" className="responsive-img"></img>Github
-                             </div>
+              </div>
               <div className="col s6 m3">
                 <img alt="" src="images/linux.png" className="responsive-img"></img>linux
-                            </div>
+              </div>
               <div className="col s6 m3">
                 <img alt="" src="images/nginx.png" className="responsive-img"></img>Nginx
-                            </div>
+              </div>
               <div className="col s6 m3">
                 <img alt="" src="images/vscode.png" className="responsive-img"></img>VSCode
-                            </div>
+              </div>
             </div>
           </div>
         </div>
