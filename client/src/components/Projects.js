@@ -53,7 +53,7 @@ export const Projects = () => {
             <h6 >Основные технологии, библиотеки</h6>
             <ul className="border-bottom">
               <li>TypeScript</li>
-              <li>Nodejs, Nestjs, express, npm, REST API </li>
+              <li>Nodejs, Nestjs, Express.js, npm, REST API </li>
               <li>React, materializecss</li>
               <li>PostgreSQL, sequelize</li>
               <li>Nginx, pm2</li>
