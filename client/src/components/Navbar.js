@@ -63,7 +63,7 @@ export const Navbar = () => {
         </Link></li>
         <li><Link activeClass="active" className="sidenav-close " to="Contact" spy={true} smooth={true} duration={500} offset={-54}><i className="fas fa-envelope-open fa-fw fa-2x  brown-text text-darken-1" ></i>Contact</Link></li>
         <li><Link activeClass="active" className="sidenav-close " to="About" spy={true} smooth={true} duration={500} offset={-54}><i className="fas fa-user fa-fw fa-2x green-text text-lighten-1" ></i>About</Link></li>
-        <li><Link activeClass="active" className="sidenav-close" to="Projects" spy={true} smooth={true} duration={500} offset={-54}><i className="fas fa-code fa-fw fa-2x  cyan-text text-darken-1" ></i>Projects</Link></li>
+        <li><Link activeClass="active" className="sidenav-close" to="Projects" spy={true} smooth={true} duration={500} offset={-54}><i className="fas fa-code fa-fw fa-2x  cyan-text text-darken-1" ></i>Experience</Link></li>
         <li><Link activeClass="active" className="sidenav-close" to="Skills" spy={true} smooth={true} duration={500} offset={-54}><i className="fas fa-chart-bar fa-fw fa-2x pink-text text-lighten-1" ></i>Skills</Link></li>
         <li><Link activeClass="active" className="sidenav-close" to="Education" spy={true} smooth={true} duration={500}
           offset={-54}><i className="fas fa-user-graduate fa-fw fa-2x orange-text text-lighten-2" ></i>Education</Link>
@@ -86,7 +86,7 @@ export const Navbar = () => {
           <i className="fas fa-envelope-open fa-fw fa-2x  brown-text text-darken-1" ></i>Contact</Link></li>
         <li><Link activeClass="active" className="side-bg-color" to="About" spy={true} smooth={true} duration={500} >
           <i className="fas fa-user fa-fw fa-2x green-text text-lighten-1" ></i>About</Link></li>
-        <li><Link activeClass="active" className="side-bg-color " to="Projects" spy={true} smooth={true} duration={500} ><i className="fas fa-code fa-fw fa-2x  cyan-text text-darken-1" ></i> Projects</Link></li>
+        <li><Link activeClass="active" className="side-bg-color " to="Projects" spy={true} smooth={true} duration={500} ><i className="fas fa-code fa-fw fa-2x  cyan-text text-darken-1" ></i> Experience</Link></li>
         <li><Link activeClass="active" className="side-bg-color" to="Skills" spy={true} smooth={true} duration={500} >
           <i className="fas fa-chart-bar fa-fw fa-2x pink-text text-lighten-1" ></i>Skills</Link></li>
         <li><Link activeClass="active" className="side-bg-color" to="Education" spy={true} smooth={true} duration={500} >
