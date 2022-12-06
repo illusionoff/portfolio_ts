@@ -134,7 +134,7 @@ export const Projects = () => {
             <ul className="border-bottom">
               <li>Nodejs, Express, npm </li>
               <li>React, materializecss, react-chartjs-2</li>
-              <li>Nginx, pm2</li>
+              <li>Nginx, docker, docker-compose, pm2</li>
               <li>ws, reconnecting-websocket</li>
               <li>mocha</li>
               <li>eslint</li>
@@ -197,6 +197,16 @@ export const Projects = () => {
               </div>
               <div className="col s12 m10 link text">
                 <a href="http://criptoarbitr.178.20.42.150.sslip.io/" target="_blanc" >Сайт проекта CriptoArbitr</a>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col s12 m2 link">
+                <a target="_blank" rel="noreferrer" href="https://github.com/illusionoff/reactcriptoarbitr_docker_composer_prod" data-position="top" data-tooltip="github" className="btn-floating btn-large waves-effect waves-light brown tooltipped">
+                  <i className="fa fa-github-square fa-fw" ></i>
+                </a>
+              </div>
+              <div className="col s12 m10 link text text-newline" >
+                <a target="_blank" rel="noreferrer" href="https://github.com/illusionoff/reactcriptoarbitr_docker_composer_prod" className="hoverline">https://github.com/illusionoff/reactcriptoarbitr_docker_composer_prod</a>
               </div>
             </div>
             <div className="row">
