@@ -39,7 +39,7 @@ export const Projects = () => {
               <em className="gray-text"> <span className="blue-text text-darken-2">
                 <a rel="noreferrer" href="https://landpro.site/" target="_blanc"> landpro.site  </a>
               </span>
-                Июль 2022 — октябрь 2022 (4 месяца)
+                Май 2022 — октябрь 2022 (6 месяцев)
               </em>
             </p>
 
@@ -90,7 +90,7 @@ export const Projects = () => {
                 Freelance Junior Node.js developer
               </span>
             </p>
-            <p>
+            <div>
               <em className="gray-text">
                 <a href="http://criptoarbitr.178.20.42.150.sslip.io/" target="_blanc" >CriptoArbitr </a>
                 Июнь 2021 — ноябрь 2021 (6 месяцев).
@@ -98,7 +98,7 @@ export const Projects = () => {
                   Исседование возможности извлечения прибыли на разнице курсов между двумя криптобиржами (межбиржевой арбитраж).
                 </p>
               </em>
-            </p>
+            </div>
             <div className="card-project">
               <div className="row">
                 <div className="col s6 m3">
