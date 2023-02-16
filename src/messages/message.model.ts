@@ -1,8 +1,5 @@
 import { Model, Table, Column, DataType, BelongsToMany } from 'sequelize-typescript';
 import { ApiProperty } from '@nestjs/swagger';
-// import { Role } from 'src/roles/roles.model';
-// import { UserRoles } from 'src/roles/user-roles.model';
-// import { DataType } from 'sequelize/types';
 
 interface MessageCreationAttrs {
   name: string;

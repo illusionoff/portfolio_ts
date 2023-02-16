@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { lastValueFrom, map } from 'rxjs';
-import { CreateMessageDto } from 'src/messages/dto/create-message.dto';
+import { MessageDto } from 'src/messages/dto/message.dto';
 
 @Injectable()
 export class SmsService {
   constructor(private httpService: HttpService) {}
 
-  async sendSMS(dto: CreateMessageDto): Promise<void> {
+  async sendSMS(messageFull: MessageDto): Promise<void> {
     try {
-      let { name, message } = dto;
+      let { name, message } = messageFull;
       if (name.length > 10) name = name.substring(0, 10);
       if (message.length > 30) message = message.substring(0, 30);
       const strToken = `${process.env.CONFIG_SMS_URL}?token=${process.env.CONFIG_SMS_TOKEN}`;
