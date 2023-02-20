@@ -1,4 +1,4 @@
-import { Model, Table, Column, DataType, BelongsToMany } from 'sequelize-typescript';
+import { Model, Table, Column, DataType } from 'sequelize-typescript';
 import { ApiProperty } from '@nestjs/swagger';
 
 interface MessageCreationAttrs {
@@ -8,7 +8,6 @@ interface MessageCreationAttrs {
 
 @Table({ tableName: 'portfolio_messages_ts', createdAt: true, updatedAt: false })
 export class Message extends Model<Message, MessageCreationAttrs> {
-  // @ApiProperty({ example: '990', description: 'Unique id' })
   @Column({
     type: DataType.INTEGER,
     unique: true,
@@ -24,11 +23,4 @@ export class Message extends Model<Message, MessageCreationAttrs> {
   @ApiProperty({ example: 'Hello Alex. How are you?', description: 'You message' })
   @Column({ type: DataType.STRING, allowNull: false })
   message: string;
-
-  // @ApiProperty({ example: 'true', description: 'Забанен или нет' })
-  // @Column({ type: DataType.DATE, defaultValue: false })
-  // time: timestamp;
-
-  // @BelongsToMany(() => Role, () => UserRoles)
-  // roles: Role[];
 }

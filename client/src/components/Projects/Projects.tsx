@@ -17,8 +17,8 @@ export const Projects: FC = () => {
       <h3 className='page-title white-text'>Experience</h3>
       <div className='container'>
         <Project project={LandProData} />
-        <Project project={CriptoArbitrData} />
         <Project project={PortfolioData} />
+        <Project project={CriptoArbitrData} />
         <Project project={HomeMoneyCalcData} />
       </div>
     </>

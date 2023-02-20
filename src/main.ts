@@ -16,8 +16,6 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/api/docs', app, document);
-  // app.useGlobalGuards(JwtAuthGuard); // можно ко всем сразу доступам ограничить только авторизованным пользователям
-
   await app.listen(PORT, () => console.log(`Server started on port =${PORT}`));
 }
 bootstrap();

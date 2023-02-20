@@ -4,11 +4,12 @@ import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { MessageDto } from './dto/message.dto';
 import { Message } from './message.model';
 import { MessageService } from './message.service';
+import { DatebaseService } from 'src/datebase/datebase.service';
 
 @ApiTags('Messages')
 @Controller('message')
 export class MessageController {
-  constructor(private messageService: MessageService) {}
+  constructor(private messageService: MessageService, private datebaseService: DatebaseService) {}
 
   @ApiOperation({ summary: 'Add message' })
   @ApiResponse({ status: 200, type: Message })
@@ -22,13 +23,13 @@ export class MessageController {
   @ApiResponse({ status: 200, type: [Message] })
   @Get(':pass')
   getAll(@Param('pass') pass: string) {
-    return this.messageService.getAll(pass);
+    return this.datebaseService.getAll(pass);
   }
 
   @ApiOperation({ summary: 'Get last limit messages' })
   @ApiResponse({ status: 200, type: [Message] })
   @Get('/:pass/:number')
   GetLimit(@Param('pass') pass: string, @Param('number') number: number) {
-    return this.messageService.getLimit(pass, number);
+    return this.datebaseService.getLimit(pass, number);
   }
 }

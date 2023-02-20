@@ -9,7 +9,7 @@ export const PortfolioData: IProject = {
     imgAlt: 'Cайта портфолио',
     href: '',
     role: 'Full Stack',
-    interval: 'Начал примерно весной 2021г. (2 месяца, позже рефакторинг)',
+    interval: 'Начал примерно весной 2021г. (позже рефакторинг)',
     text: 'Сайт портфолио на котором Вы находитесь',
   },
   mainFunctions: {
